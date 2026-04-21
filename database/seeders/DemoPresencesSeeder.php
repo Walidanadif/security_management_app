@@ -23,7 +23,7 @@ class DemoPresencesSeeder extends Seeder
                     'statut' => $statuts[array_rand($statuts)],
                     'heure_arrivee' => rand(7, 10) . ':00',
                     'heure_depart' => rand(16, 19) . ':00',
-                    'commentaire' => fake()->sentence,
+'commentaire' => 'Pointage automatique ' . rand(1,100),
                 ]);
             }
         }
