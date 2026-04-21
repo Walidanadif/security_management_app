@@ -22,6 +22,44 @@
 php artisan migrate:fresh --seed  # DB + 16 agents en 2s !
 ```
 
+### 🏗️ **Structure Projet**
+```
+security-app/ (Laravel 12 + Tailwind + Vite)
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── AgentController.php      # CRUD agents + pointage
+│   │   ├── DashboardController.php  # Dashboards admin/agent
+│   │   ├── PlanningController.php   # Gestion plannings
+│   │   ├── PresenceController.php   # Pointage présences
+│   │   ├── SiteController.php       # CRUD sites
+│   │   └── Auth/*                   # Login/register
+│   ├── Models/
+│   │   ├── Agent.php (user_id FK)   # Agents sécurité
+│   │   ├── Planning.php (agent/site) # Affectations
+│   │   ├── Presence.php             # Pointages (present/absent/retard/conge)
+│   │   ├── Site.php                 # Sites missions
+│   │   ├── User.php (role admin/agent)
+│   │   └── Conge.php                # Demandes congés
+│   └── Middleware/AdminMiddleware.php
+├── database/migrations/
+│   ├── users + role
+│   ├── agents (nom/tel/adresse/user_id)
+│   ├── sites (nom/adresse)
+│   ├── plannings (agent_id/site_id/date/horaires)
+│   ├── presences (agent_id/date/statut)
+│   └── conges (agent_id/dates/statut)
+├── resources/views/
+│   ├── dashboard/ (admin/agent)
+│   ├── agents/ (list/calendrier/pointage/create)
+│   ├── sites/ (CRUD)
+│   ├── plannings/ (CRUD)
+│   ├── admin/presence/
+│   └── auth/ (login/register)
+├── routes/web.php
+├── public/build/assets/ (Vite/Tailwind)
+└── storage/ (logs/cache)
+```
+
 ### 🎮 **16+ Comptes Démo (MDP : `test@1234`)**
 
 **👑 ADMIN :**
@@ -47,15 +85,6 @@ php artisan migrate:fresh --seed  # DB + 16 agents en 2s !
 16. imane@test.com    (Imane Said)
 ```
 
-### 🏗️ **Structure Projet**
-```
-app/ Controllers: Agent/Presence/Dashboard/Site/Planning
-├── Models: User(roles)/Agent/Site/Planning/Presence/Conge
-├── Views: dashboard/admin-agent + CRUD + auth
-database/ migrations + seeders (16 agents auto)
-routes/web.php + middleware admin
-```
-
 ### ✅ **Fonctionnalités Testées**
 | Feature | Status |
 |---------|--------|
@@ -76,3 +105,4 @@ Deployment: 1-click Heroku/Vercel ready
 **Live Demo :** http://127.0.0.1:8000 | **[GitHub](https://github.com/Walidanadif/security_management_app)**
 
 **🎯 Production Ready - LinkedIn Portfolio parfait !**
+
