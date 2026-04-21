@@ -40,41 +40,53 @@ security-app/ (Laravel 12 + Tailwind + Vite)
 └── storage/ (logs/cache)
 ```
 
-### 🚀 Installation Rapide
+### 🚀 Installation Rapide + Seeders
 ```
-git clone https://github.com/Walidanadif/security_management_app.git
-cd security-app
 composer install
 npm install
 cp .env.example .env
 php artisan key:generate
-php artisan migrate --seed
+php artisan migrate:fresh --seed
 npm run dev
 php artisan serve
 ```
 
-**DB .env :**
+### 🎮 Comptes Démo **(MDP : `test@1234` pour tous)**
+**Admin :**
+- `admin@security-app.com` → Dashboard complet + 16 agents
+
+**Agents (16) :** Tous visibles dans listes/présences !
 ```
-DB_DATABASE=security_management_app
-DB_USERNAME=laravel
-DB_PASSWORD=Laravel@123
+ahmed@test.com (Ahmed Benali)
+fatima@test.com (Fatima Zahra)  
+mohamed@test.com (Mohamed Ali)
+aisha@test.com (Aisha Khalid)
+omar@test.com (Omar Hassan)
+sara@test.com (Sara Ben)
+youssef@test.com (Youssef El)
+leila@test.com (Leila Amira)
+karim@test.com (Karim Said)
+nadia@test.com (Nadia Rached)
+hassan@test.com (Hassan Morad)
+mariam@test.com (Mariam El)
+rachid@test.com (Rachid Ben)
+soumia@test.com (Soumia Ali)
+walid@test.com (Walid Karim)
+imane@test.com (Imane Said)
 ```
 
-### 🎮 Comptes Démo (MDP : `test@1234`)
-- **Admin** : `admin@security-app.com`
-- **Agents** : `ahmed@test.com`, `fatima@test.com`
+### 🧪 Fonctionnalités 100% OK
+- ✅ **Dashboard admin** : 16 agents + graphiques **répartition présences aujourd'hui**
+- ✅ **Liste présences admin** : **16 agents** (status variés)
+- ✅ **Agent login** : pointage/calendrier/historique personnel
+- ✅ CRUD sites/plannings
+- ✅ **Absences auto** : `php artisan schedule:work`
 
-**Live :** http://127.0.0.1:8001
-
-### 🧪 Fonctionnalités
-- Dashboard admin → agents/sites/plannings/présences
-- Agent → pointage/calendrier/historique
-- CRUD sites/plannings
-- Absences auto : `php artisan schedule:work`
+**Live :** http://127.0.0.1:8000 (ou 8001)
 
 ### 📊 Stack
-- Backend : Laravel 12, Eloquent, MySQL
-- Frontend : Blade, Tailwind CSS, Alpine.js, Vite
+- Backend : **Laravel 12** | Eloquent | SQLite (auto)
+- Frontend : **Tailwind** | **Alpine.js** | **Vite** | Charts.js
 - Auth : Role middleware
 
-**Ready for production !** Logs confirment navigation parfaite.
+**🚀 Production Ready** : Seeders + démos = parfait !
