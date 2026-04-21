@@ -1,7 +1,7 @@
 
 <?php
 
-namespace Database\Seeders;
+namespace database\Seeders;
 
 use App\Models\Site;
 use Illuminate\Database\Seeder;
