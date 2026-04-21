@@ -42,7 +42,7 @@ security-app/ (Laravel 12 + Tailwind + Vite)
 
 ### 🚀 Installation Rapide
 ```
-git clone https://github.com/Walidanadif/laravel-app-security.git
+git clone https://github.com/Walidanadif/security_management_app.git
 cd security-app
 composer install
 npm install
@@ -55,7 +55,7 @@ php artisan serve
 
 **DB .env :**
 ```
-DB_DATABASE=security_app
+DB_DATABASE=security_management_app
 DB_USERNAME=laravel
 DB_PASSWORD=Laravel@123
 ```
@@ -64,7 +64,7 @@ DB_PASSWORD=Laravel@123
 - **Admin** : `admin@security-app.com`
 - **Agents** : `ahmed@test.com`, `fatima@test.com`
 
-**Live :** http://127.0.0.1:8000
+**Live :** http://127.0.0.1:8001
 
 ### 🧪 Fonctionnalités
 - Dashboard admin → agents/sites/plannings/présences
