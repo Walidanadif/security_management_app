@@ -1,6 +1,4 @@
-
 <?php
-
 namespace Database\Seeders;
 
 use App\Models\User;
@@ -22,26 +20,32 @@ class DemoUsersSeeder extends Seeder
             ]
         );
 
-        // Agents
-        User::updateOrCreate(
-            ['email' => 'ahmed@test.com'],
-            [
-                'name' => 'Ahmed Benali',
-                'email' => 'ahmed@test.com',
-                'password' => Hash::make('test@1234'),
-                'role' => 'agent',
-            ]
-        );
+        // Agents (15+)
+        $agentNames = [
+            'Ahmed Benali', 'Fatima Zahra', 'Mohamed Ali', 'Aisha Khalid', 'Omar Hassan',
+            'Sara Ben', 'Youssef El', 'Leila Amira', 'Karim Said', 'Nadia Rached',
+            'Hassan Morad', 'Mariam El', 'Rachid Ben', 'Soumia Ali', 'Walid Karim', 'Imane Said',
+        ];
 
-        User::updateOrCreate(
-            ['email' => 'fatima@test.com'],
-            [
-                'name' => 'Fatima Zahra',
-                'email' => 'fatima@test.com',
-                'password' => Hash::make('test@1234'),
-                'role' => 'agent',
-            ]
-        );
+        $agentEmails = [
+            'ahmed@test.com', 'fatima@test.com', 'mohamed@test.com', 'aisha@test.com', 'omar@test.com',
+            'sara@test.com', 'youssef@test.com', 'leila@test.com', 'karim@test.com', 'nadia@test.com',
+            'hassan@test.com', 'mariam@test.com', 'rachid@test.com', 'soumia@test.com', 'walid@test.com', 'imane@test.com',
+        ];
+
+        foreach ($agentEmails as $email) {
+            $index = array_search($email, $agentEmails);
+            $name = $agentNames[$index];
+            
+            User::updateOrCreate(
+                ['email' => $email],
+                [
+                    'name' => $name,
+                    'email' => $email,
+                    'password' => Hash::make('test@1234'),
+                    'role' => 'agent',
+                ]
+            );
+        }
     }
 }
-

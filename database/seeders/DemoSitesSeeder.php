@@ -1,7 +1,5 @@
-
 <?php
-
-namespace database\Seeders;
+namespace Database\Seeders;
 
 use App\Models\Site;
 use Illuminate\Database\Seeder;
@@ -30,4 +28,3 @@ class DemoSitesSeeder extends Seeder
         }
     }
 }
-
