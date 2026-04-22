@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => AdminMiddleware::class,
         ]);
         $middleware->trustProxies(at: '*');
+// $middleware->trustHeaders(at: '*'); // Removed: not available in Laravel 12
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
