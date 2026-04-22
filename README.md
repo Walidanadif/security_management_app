@@ -33,6 +33,46 @@ php artisan serve            # ← http://127.0.0.1:8000
 php artisan migrate:fresh --seed  # 16 agents + données en 2s !
 ```
 
+### 🏗️ **Structure du Projet Complète**
+
+```
+security-app/ (Laravel 12 + Tailwind + Vite + Production Ready)
+├── 📂 app/
+│   ├── 📁 Http/Controllers/
+│   │   ├── AgentController.php           # CRUD agents + pointage
+│   │   ├── DashboardController.php       # Dashboards admin/agent
+│   │   ├── PlanningController.php        # Gestion plannings
+│   │   ├── PresenceController.php        # Pointage présences
+│   │   ├── SiteController.php            # CRUD sites
+│   │   └── 📁 Auth/                      # Login/register Breeze
+│   ├── 📁 Models/
+│   │   ├── Agent.php (user_id FK)        # Agents sécurité
+│   │   ├── Planning.php (agent/site)     # Affectations
+│   │   ├── Presence.php                  # Pointages (statut)
+│   │   ├── Site.php                      # Sites missions
+│   │   ├── User.php (role admin/agent)   # Users système
+│   │   └── Conge.php                     # Demandes congés
+│   └── 📁 Middleware/
+│       └── AdminMiddleware.php           # Protection admin
+├── 🗃️ database/
+│   ├── 📁 migrations/                    # users/agents/sites/...
+│   └── 📁 seeders/                       # 16 agents auto + présences
+├── 🎨 resources/
+│   ├── 📁 views/
+│   │   ├── 📁 dashboard/ (admin/agent)
+│   │   ├── 📁 agents/ (CRUD/calendrier/pointage)
+│   │   ├── 📁 sites/ (CRUD)
+│   │   ├── 📁 plannings/ (CRUD)
+│   │   └── 📁 auth/ (login/register)
+│   └── 📁 css/js/ (Tailwind/Vite/Alpine)
+├── 🛤️ routes/
+│   ├── web.php
+│   └── auth.php
+├── 🚀 public/build/ (Vite assets)
+├── ⚙️ config/ (app/auth/database)
+└── 📦 storage/ (logs/cache/sessions)
+```
+
 ### 🎮 **Comptes Démo Prêts (Password: `test@1234`)**
 
 | **Role** | **Email**                    | **Accès** |
@@ -41,18 +81,6 @@ php artisan migrate:fresh --seed  # 16 agents + données en 2s !
 | 👥 Agent 1 | `ahmed@test.com`           | Dashboard personnel |
 | 👥 Agent 2 | `fatima@test.com`           | Pointage personnel |
 | ... + **14 autres agents** | `*test.com` | Listes complètes |
-
-### 🏗️ **Architecture Technique**
-
-```
-📁 security-app/ (Laravel 12 + Modern Stack)
-├── 🎛️ Controllers : Agent/Dashboard/Planning/Presence/Site/Auth
-├── 🗄️ Models : User(role)|Agent|Site|Planning|Presence|Conge
-├── 🎨 Views : Dashboard(admin/agent)|CRUD|Calendriers|Auth
-├── 🗃️ DB : Migrations + Seeders(16 agents auto)
-├── 🛡️ Middleware : Admin protection
-└── 🚀 Deployment : Nixpacks.toml Heroku ready
-```
 
 ### 📊 **Stack Technologique Premium**
 ```
